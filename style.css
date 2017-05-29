@@ -33,6 +33,12 @@ body {
     background-color: #263238;
 }
 
+#title {
+    color: white;
+    /*display: block;*/
+    /*margin: 1em auto;*/
+}
+
 #searchbar {
     color: white;
     border: 1px solid white;

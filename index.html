@@ -7,18 +7,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
-    <body>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12">
-            <h1 id="title" class="text-center">Larry's Wikipedia Viewer</h1>
-              <form id="searchbar">
-                <i id="search-icon" class="fa fa-search"></i>
-	              <input type="search" placeholder="Search">
-              </form>
-          </div><!-- /.col-lg-6 -->
-        </div>
-      </div>
+    <body class="wiki-search">
+      <h1 id="title" class="text-center">Larry's Wikipedia Viewer</h1>
+      <form id="searchbar" method="post">
+        <input type="search" name="srsearch" placeholder="&#xf002;" style="font-family:Arial, FontAwesome"/>
+        <input id="submit" type="submit" style="visibility: hidden;"/>
+      </form>
+      <div id="search-results"></div>
       <script src="app.js"></script>
     </body>
 </html>

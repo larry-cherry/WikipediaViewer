@@ -1,30 +1,45 @@
-console.log("app.js loaded")
-//expands or collapses search bar
-document.getElementById("search-icon").onclick = function(e) {
-    console.log("click");
-    if (this.classList.contains("collapsed")) {
-        console.log("it is collapsed")
-        this.classList.remove("collapsed")
-    }
-    else {
-        console.log("it is not collapsed")
-        this.classList.add("collapsed")
-    }
-}
-//submits wikisearch queriy
-document.getElementById("searchbar").onsubmit = function(e) {
+$('document').ready(function() {
+ searchResult = "";
+
+ function appendDoc(test) {
+   console.log(test)
+ }
+  
+  $("#searchbar").on( "submit", function(e) {
     e.preventDefault();
-    console.log("form submitted");
-    console.log(this.lastElementChild.value);
-    //example using opensearch query
-    url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=bacon&format=jsonp&callback=?"
+    console.log("works");
     // debugger;
+    var data = $("#searchbar").serialize();
+    var url = `https://stark-dawn-64113.herokuapp.com/wiki/index`;
     $.ajax({
-    url: url,
-    type: 'GET',
-    cache: false,
-    // data: data,
-  }).done(function(server_data){
-      console.log(server_data);
-  })
-}
+      url: url,
+      type: 'get',
+      data: data
+    }).done(function(server_data){
+      console.log(server_data.query.search);
+      searchResult = server_data.query.search
+      $("#search-results").empty()
+      if (searchResult.length > 0) {
+        for (var i = 0; i < searchResult.length; i++) {
+          var resultHTML = `
+          <div class='result'>
+            <a href="https://en.wikipedia.org/wiki/${searchResult[i].title}">
+              <h2>${searchResult[i].title}</h2>
+            </a>
+            ${searchResult[i].snippet}
+          </div>`
+          $("#search-results").append(resultHTML)
+        }   
+      }else {
+        var resultHTML = `
+        <div class='result'>
+          <h2 style="color: red; text-align: center">No Results Found</h2>
+        </div>`
+        $("#search-results").append(resultHTML)
+      }
+      
+    }).fail(function(error){
+      console.log(error);
+    });
+  });
+});

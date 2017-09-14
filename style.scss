@@ -1,0 +1,60 @@
+
+.wiki-search {
+  background-color: #263238;
+  color: #dff5ff;
+  #title{
+    text-align: center;
+    margin-bottom: 25px;
+  }    
+  #searchbar{
+    border: 1px solid #dff5ff;
+    border-radius: 25em;
+    transition: all 1s .25s;
+    display: block;
+    margin: 0.5em auto;
+    width: 60%;
+    input {
+      font-size: 1.5em;
+      display: block;
+      margin : auto;
+      text-align: center;
+      width: 95%;
+      border: none;
+      background-color: transparent;
+      outline: none;
+    }
+  }
+  #searchbar:hover {
+    border-color: green;
+    color: green;
+    background-color: #dff5ff;
+    width: 90vw;
+  }
+    .collapsed {
+        min-width: auto;
+    }
+  #search-results {
+    margin-top: 25px;
+    .result {
+      transition: all 1s .25s;
+      border: 1px solid #000a12;
+      border-radius: 1em;
+      background-color: #4f5b62;
+      margin: 5px 25px;
+      padding: 1em;
+      h2 {
+        transition: all 1s .25s;
+        color: #dff5ff;
+      }
+    }
+    .result:hover {
+      border-color: green;
+      color: green;
+      background-color: #dff5ff;
+      h2 {
+        color: green;
+      }
+    }
+  }
+}
+

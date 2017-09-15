@@ -11,7 +11,7 @@
     -o-transition: all 1s .25s;
     transition: all 1s .25s;
     display: block;
-    margin: 0.5em auto;
+    margin: 25px auto;
     width: 60%; }
     .wiki-search #searchbar input {
       font-size: 1.5em;
@@ -29,6 +29,18 @@
     width: 90vw; }
   .wiki-search .collapsed {
     min-width: auto; }
+  .wiki-search button {
+    -webkit-transition: all 1s .50s;
+    -o-transition: all 1s .50s;
+    transition: all 1s .50s;
+    background-color: #4f5b62;
+    border-radius: 1em;
+    color: #dff5ff;
+    display: block;
+    margin: auto; }
+  .wiki-search button:hover {
+    color: #4f5b62;
+    background-color: #dff5ff; }
   .wiki-search #search-results {
     margin-top: 25px; }
     .wiki-search #search-results .result {

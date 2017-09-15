@@ -1,9 +1,39 @@
 $('document').ready(function() {
  searchResult = "";
-
- function appendDoc(test) {
-   console.log(test)
- }
+ data = {srsearch: "random"};
+  $("#random-wiki").click(function(e){
+    $.ajax({
+      url: "https://stark-dawn-64113.herokuapp.com/wiki/index",
+      type: 'get',
+      data: data
+    }).done(function(server_data){
+      console.log(server_data.query);
+      searchResult = server_data.query.random
+      // debugger;
+      $("#search-results").empty()
+      // debugger;
+      if (searchResult.length > 0) {
+        for (var i = 0; i < searchResult.length; i++) {
+          var resultHTML = `
+          <div class='result'>
+            <a href="https://en.wikipedia.org/wiki/${searchResult[i].title}">
+              <h2>${searchResult[i].title}</h2>
+            </a>
+          </div>`
+          $("#search-results").append(resultHTML)
+        }   
+      }else {
+        var resultHTML = `
+        <div class='result'>
+          <h2 style="color: red; text-align: center">No Results Found</h2>
+        </div>`
+        $("#search-results").append(resultHTML)
+      }
+      
+    }).fail(function(error){
+      console.log(error);
+    });
+  });
   
   $("#searchbar").on( "submit", function(e) {
     e.preventDefault();

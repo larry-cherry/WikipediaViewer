@@ -11,7 +11,7 @@
     border-radius: 25em;
     transition: all 1s .25s;
     display: block;
-    margin: 0.5em auto;
+    margin: 25px auto;
     width: 60%;
     input {
       font-size: 1.5em;
@@ -33,6 +33,18 @@
     .collapsed {
         min-width: auto;
     }
+  button {
+    transition: all 1s .50s;
+    background-color: #4f5b62;
+    border-radius: 1em;
+    color: #dff5ff;
+    display: block;
+    margin: auto;
+  }
+  button:hover {
+    color: #4f5b62;
+    background-color: #dff5ff;
+  }
   #search-results {
     margin-top: 25px;
     .result {
